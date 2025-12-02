@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mahatm Innovations — AI, Optimization, Intelligent Systems</title>
+  <meta name="description" content="Mahatm Innovations builds intelligent systems across AI, optimization, automation, and enterprise solutions.">
+  <link rel="canonical" href="https://mahatm.in/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Mahatm Innovations">
+  <meta property="og:description" content="Innovating the future with AI, Optimization, and Intelligent Systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mahatm.in/">
+  <meta property="og:image" content="https://mahatm.in/images/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mahatm Innovations">
+  <meta name="twitter:description" content="Innovating the future with AI, Optimization, and Intelligent Systems.">
+  <meta name="twitter:image" content="https://mahatm.in/og-card.png">
+  <script defer data-domain="mahatm.in" src="https://plausible.io/js/script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* Base aesthetic helpers kept inline for critical paint */
+    .glow { box-shadow: 0 0 20px rgba(99,102,241,0.35); }
+    .grid-bg {
+      background-image: linear-gradient(rgba(99,102,241,0.10) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(99,102,241,0.10) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: center center;
+    }
+    .hero-gradient { background: radial-gradient(1000px 400px at 50% -100px, rgba(99,102,241,0.22), transparent), radial-gradient(600px 400px at 80% -50px, rgba(34,197,94,0.22), transparent); }
+  </style>
+</head>
+  <body x-data="{dark:true}" :class="dark ? 'theme-dark bg-slate-950 text-slate-200' : 'theme-light bg-white text-slate-800'">
+  <header :class="'sticky top-0 z-40 backdrop-blur border-b ' + (dark ? 'bg-slate-950/60 border-slate-800' : 'bg-white/70 border-slate-200')">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 font-semibold text-lg tracking-tight">
+        <img src="/images/mahatm_logo.svg" alt="Mahatm Logo" class="w-8 h-8" />
+        <span>Mahatm Innovations</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a class="hover:text-indigo-300" href="#about">About</a>
+        <a class="hover:text-indigo-300" href="#projects">Projects</a>
+        <a class="hover:text-indigo-300" href="#services">Services</a>
+        <a class="hover:text-indigo-300" href="#contact">Contact</a>
+        <a class="hover:text-emerald-300" href="lab/index.html">AI Lab</a>
+        <button @click="dark=!dark" class="px-3 py-1 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-gradient grid-bg relative overflow-hidden">
+    <canvas id="heroParticles" class="absolute inset-0 w-full h-full opacity-30 pointer-events-none"></canvas>
+    <div class="max-w-7xl mx-auto px-4 py-24 flex flex-col items-center text-center">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+        Innovating the future with <span class="text-indigo-400">AI</span>, <span class="text-emerald-400">Optimization</span>, and Intelligent Systems
+      </h1>
+      <p class="mt-6 max-w-3xl text-slate-300">
+        We design and deploy pragmatic AI solutions — optimization engines, automation tools, and custom models that turn complex problems into elegant, scalable products.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#projects" class="px-5 py-3 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white font-medium glow glow-btn">Explore Projects</a>
+        <a href="#contact" class="px-5 py-3 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300 font-medium">Work With Us</a>
+        <a href="lab/ai-maze/index.html" class="px-5 py-3 rounded-md border border-slate-700 hover:border-emerald-500 text-emerald-300 font-medium">Play AI Chat Maze</a>
+      </div>
+    </div>
+    <!-- Watermark logo in the hero corner -->
+    <img src="/images/mahatm_logo.svg" alt="Mahatm" class="absolute right-4 bottom-4 w-14 h-14 opacity-30" />
+  </section>
+
+  <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-semibold">About Mahatm</h2>
+        <p class="mt-4 text-slate-300">Mahatm Innovations is a next‑generation technology company building intelligent systems across AI, optimization, automation, and enterprise solutions. We blend rigorous algorithms with product craftsmanship.</p>
+        <ul class="mt-6 space-y-2 text-slate-300">
+          <li>• AI Consulting & Automation</li>
+          <li>• Optimization Engines for Enterprises</li>
+          <li>• Custom AI Model Development</li>
+          <li>• Web & Automation Tools</li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-slate-800 p-6 glow">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-indigo-400">10X</div>
+            <div class="text-xs text-slate-400">Efficiency Gains</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-emerald-400">24/7</div>
+            <div class="text-xs text-slate-400">Automations</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-fuchsia-400">Zero</div>
+            <div class="text-xs text-slate-400">Black‑Box Hype</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold">Flagship Projects</h2>
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards -->
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">AI Crew Training Optimizer</h3>
+          <p class="mt-2 text-sm text-slate-300">Optimization engine for multi‑qualified airline crew instructors, scheduling, and resource utilization.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">Email Summarization & Inbox Cleaner</h3>
+          <p class="mt-2 text-sm text-slate-300">AI‑powered app that summarizes emails and helps maintain a clean inbox.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">AI Investment Advisor</h3>
+          <p class="mt-2 text-sm text-slate-300">Portfolio optimization and recommendations powered by AI predictions.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">Algorithmic Trading Models</h3>
+          <p class="mt-2 text-sm text-slate-300">Moderate‑risk trading algorithms tuned for Indian markets.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">AI Sanskrit Knowledge Interpreter</h3>
+          <p class="mt-2 text-sm text-slate-300">Reads, understands, and explains complex Sanskrit texts with modern clarity.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-indigo-500 transition">
+          <h3 class="font-semibold">AI Agent that Builds Applications</h3>
+          <p class="mt-2 text-sm text-slate-300">Automated agent that builds deploy‑ready applications from a single prompt.</p>
+        </article>
+        <article class="rounded-xl border border-slate-800 p-6 hover:border-emerald-500 transition">
+          <h3 class="font-semibold">AI Lab — Experiments</h3>
+          <p class="mt-2 text-sm text-slate-300">Try interactive demos like the AI Chat Maze and more.</p>
+          <a href="lab/index.html" class="mt-4 inline-block px-4 py-2 rounded-md border border-slate-700 hover:border-emerald-500 text-emerald-300">Open AI Lab</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold">Services</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl border border-slate-800 p-6">
+          <h3 class="font-semibold">AI Consulting</h3>
+          <p class="mt-2 text-sm text-slate-300">Strategy, roadmaps, and ROI‑driven implementations.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 p-6">
+          <h3 class="font-semibold">Optimization Engines</h3>
+          <p class="mt-2 text-sm text-slate-300">Scheduling, routing, resource allocation with provable performance.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 p-6">
+          <h3 class="font-semibold">Custom Models</h3>
+          <p class="mt-2 text-sm text-slate-300">Fine‑tuned LLMs and specialized ML systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline game removed; see AI Lab for experiments -->
+
+  <section id="contact" class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-semibold">Contact</h2>
+        <p class="mt-3 text-slate-300">Email: <a class="text-indigo-300" href="mailto:r.v.saraswat88+mahatm@gmail.com">contact@mahatm.in</a></p>
+        <p class="mt-2 text-slate-400 text-sm">Prefer a form? Use the quick message below.</p>
+        <form action="https://formspree.io/f/your_endpoint" method="POST" class="mt-4 space-y-3">
+          <input name="email" type="email" required placeholder="Your email" class="w-full px-4 py-2 rounded-md bg-slate-900 border border-slate-800">
+          <textarea name="message" required placeholder="How can we help?" rows="4" class="w-full px-4 py-2 rounded-md bg-slate-900 border border-slate-800"></textarea>
+          <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off">
+          <button class="px-5 py-3 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium">Send</button>
+        </form>
+      </div>
+      <div class="rounded-xl border border-slate-800 p-6">
+        <h3 class="font-semibold">Connect</h3>
+        <ul class="mt-3 space-y-3 text-slate-300">
+          <li>
+            <a class="flex items-center gap-3 hover:opacity-80" href="https://github.com/rvsaraswat" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 brand-icon brand-icon-github"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.14 0 0 1-.32 3.28 1.23a11.4 11.4 0 0 1 5.97 0c2.27-1.55 3.27-1.23 3.27-1.23.66 1.63.24 2.84.12 3.14.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex items-center gap-3 hover:opacity-80" href="https://www.linkedin.com/in/rvsaraswat" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 brand-icon brand-icon-linkedin"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 8.75h3.96V21H3V8.75Zm6.54 0H13.3v1.67h.05c.59-1.12 2.03-2.3 4.18-2.3 4.47 0 5.3 2.94 5.3 6.76V21h-3.96v-5.09c0-1.22-.02-2.79-1.7-2.79-1.71 0-1.97 1.33-1.97 2.7V21H10.5V8.75Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex items-center gap-3 hover:opacity-80" href="https://twitter.com/" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 brand-icon brand-icon-twitter"><path d="M17.53 2H21L14.43 10.48L22 22H15.8L11.06 15.2L5.6 22H2L8.99 13.08L2 2H8.35L12.67 8.2L17.53 2ZM16.45 19.86H18.17L7.63 4.05H5.78L16.45 19.86Z"/></svg>
+              <span>Twitter</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm text-slate-400">© 2025 Mahatm Innovations. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/hero.js"></script>
+</body>
+</html>

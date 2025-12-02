@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Chat Maze</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>AI Chat Maze</h1>
+    <a class="back" href="../../index.html">← Back to Mahatm</a>
+  </header>
+  <main class="layout">
+    <section id="maze-section">
+      <div id="maze-container" aria-label="Maze grid" role="grid"></div>
+      <div class="controls">
+        <button class="dir" data-dir="up" aria-label="Move up">▲</button>
+        <div class="row">
+          <button class="dir" data-dir="left" aria-label="Move left">◀</button>
+          <button class="dir" data-dir="down" aria-label="Move down">▼</button>
+          <button class="dir" data-dir="right" aria-label="Move right">▶</button>
+        </div>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+      <div id="hud" class="status" aria-live="polite">Time: 0.0s · Moves: 0</div>
+      <details class="howto">
+        <summary>How to play</summary>
+        <ul>
+          <li>Use Arrow keys or WASD to move.</li>
+          <li>Tap the on-screen arrows on mobile.</li>
+          <li>Avoid walls; reach the glowing goal square.</li>
+          <li>Press “Get Hint” for guidance from the AI.</li>
+          <li>“Show Path” highlights the optimal route.</li>
+          <li>“Auto Follow” moves you to the goal automatically.</li>
+          <li>Use the level selector to try different mazes.</li>
+        </ul>
+      </details>
+    </section>
+    <aside id="chat-container" class="chat">
+      <div class="ai-header">
+        <img src="assets/ai-avatar.png" alt="AI Assistant" class="ai-avatar"/>
+        <div>
+          <div class="ai-name">Astra</div>
+          <div class="ai-tag">Friendly, futuristic guidance</div>
+        </div>
+      </div>
+      <div id="ai-response" class="ai-response">Hello Explorer. Press “Get Hint” when you need me.</div>
+      <label class="level-select">Level: 
+        <select id="level"> 
+          <option value="0">Level 1</option>
+          <option value="1">Level 2</option>
+          <option value="2">Level 3</option>
+        </select>
+      </label>
+      <div class="btn-row">
+        <button id="hint-btn" class="btn">Get Hint</button>
+        <button id="show-path" class="btn">Show Path</button>
+        <button id="auto-follow" class="btn">Auto Follow</button>
+      </div>
+    </aside>
+  </main>
+
+  <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="win-title">
+    <div class="modal-card">
+      <h2 id="win-title">Congratulations!</h2>
+      <p>The AI guided you out of the maze.</p>
+      <div style="display:flex; gap:8px; justify-content:center; margin-top:8px">
+        <button id="play-again" class="btn">Play Again</button>
+        <button id="next-level" class="btn">Next Level</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="maze.js" defer></script>
+  <script src="ai.js" defer></script>
+</body>
+</html>

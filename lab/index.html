@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mahatm AI Lab</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#0e1626;--text:#e6eefc;--muted:#96a2b8;--accent:#00D1FF}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}
+    header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#0a1120;border-bottom:1px solid #182036}
+    header a{color:var(--muted);text-decoration:none}
+    main{max-width:960px;margin:0 auto;padding:16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid #162034;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+    .card h3{margin:0;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .card a{margin-top:auto;display:inline-block;background:linear-gradient(90deg,var(--accent),#7cfcff);color:#00131a;border:none;border-radius:10px;padding:10px 12px;font-weight:600;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="margin:0;font-size:18px">Mahatm AI Lab</h1>
+    <a href="../index.html">← Back to Mahatm</a>
+  </header>
+  <main>
+    <p>Welcome to the Mahatm AI Lab — a space for interactive experiments.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>AI Chat Maze</h3>
+        <p>Navigate a 2D maze with guidance from a friendly, rule-based AI.</p>
+        <a href="ai-maze/index.html">Open</a>
+      </div>
+      <!-- Future experiments can be listed here -->
+    </div>
+  </main>
+</body>
+</html>
