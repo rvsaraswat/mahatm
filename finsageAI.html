@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinSage AI Assistant — Mahatm Innovations</title>
+  <meta name="description" content="FinSage AI Assistant is a local AI-powered trading assistant for Zerodha Kite: chat with local LLMs via Ollama, analyze your portfolio, and execute trades with human-in-the-loop safety.">
+  <link rel="canonical" href="https://mahatm.in/finsageAI.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:title" content="FinSage AI Assistant — Mahatm Innovations">
+  <meta property="og:description" content="Local AI trading copilot for Zerodha Kite: portfolio analysis + safe execution.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mahatm.in/finsageAI.html">
+  <meta property="og:image" content="https://mahatm.in/images/og-card.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FinSage AI Assistant — Mahatm Innovations">
+  <meta name="twitter:description" content="Local AI trading copilot for Zerodha Kite: portfolio analysis + safe execution.">
+  <meta name="twitter:image" content="https://mahatm.in/images/og-card.png">
+
+  <script defer data-domain="mahatm.in" src="https://plausible.io/js/script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    .glow { box-shadow: 0 0 20px rgba(99,102,241,0.35); }
+    .grid-bg {
+      background-image: linear-gradient(rgba(99,102,241,0.10) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(99,102,241,0.10) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: center center;
+    }
+    .hero-gradient {
+      background: radial-gradient(1000px 400px at 50% -100px, rgba(99,102,241,0.22), transparent),
+                  radial-gradient(600px 400px at 80% -50px, rgba(34,197,94,0.22), transparent);
+    }
+  </style>
+</head>
+
+<body x-data="{dark:true}" :class="dark ? 'theme-dark bg-slate-950 text-slate-200' : 'theme-light bg-white text-slate-800'">
+  <header x-data="{ mobileMenuOpen: false, projectsOpen: false }" :class="'sticky top-0 z-40 backdrop-blur border-b ' + (dark ? 'bg-slate-950/60 border-slate-800' : 'bg-white/70 border-slate-200')">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 font-semibold text-lg tracking-tight">
+        <img src="/images/mahatm_logo.svg" alt="Mahatm Innovations Logo" class="w-8 h-8" />
+        <span>Mahatm Innovations</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm relative">
+        <a class="hover:text-indigo-300" href="/#about">About</a>
+        <a class="hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+        <a class="hover:text-indigo-300" href="/#showcase">Showcase</a>
+
+        <div class="relative" @keydown.escape.window="projectsOpen=false">
+          <button @click="projectsOpen = !projectsOpen" class="hover:text-indigo-300 inline-flex items-center gap-2" :aria-expanded="projectsOpen.toString()" aria-haspopup="true">
+            Projects
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+
+          <div x-show="projectsOpen" @click.away="projectsOpen=false" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-120" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute left-0 mt-3 w-[22rem] sm:w-[28rem] md:w-[34rem] rounded-xl border border-slate-800 bg-slate-950/95 backdrop-blur p-4 shadow-xl" style="display:none;">
+            <div class="text-xs uppercase tracking-wider text-slate-500 px-1">Projects</div>
+            <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <a href="/projects.html" class="md:col-span-2 rounded-lg border border-slate-800 bg-slate-900/30 p-4 hover:border-indigo-500/50 hover:bg-slate-900/50 transition">
+                <div class="text-sm font-semibold text-slate-100">View all projects</div>
+                <div class="mt-1 text-xs text-slate-400">A growing catalog of practical AI systems and experiments.</div>
+              </a>
+
+              <a href="/finsageAI.html" class="md:col-span-2 rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-emerald-500/40 hover:bg-slate-900/40 transition flex gap-4">
+                <img src="/images/finsage/landing-page.png" alt="FinSage AI Assistant preview" class="w-16 h-12 rounded-md object-cover border border-slate-800" loading="lazy">
+                <div class="min-w-0">
+                  <div class="text-sm font-semibold text-indigo-300">FinSage AI Assistant</div>
+                  <div class="mt-1 text-xs text-slate-400">Local LLM + Zerodha Kite copilot with portfolio analytics and safe trade execution.</div>
+                </div>
+              </a>
+
+              <a href="/lab/ai-maze/" class="rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-indigo-500/40 hover:bg-slate-900/40 transition">
+                <div class="text-sm font-semibold text-slate-100">AI Chat Maze</div>
+                <div class="mt-1 text-xs text-slate-400">A playful lab demo exploring agent-like behavior.</div>
+              </a>
+
+              <a href="/lab/" class="rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-indigo-500/40 hover:bg-slate-900/40 transition">
+                <div class="text-sm font-semibold text-slate-100">AI Lab</div>
+                <div class="mt-1 text-xs text-slate-400">Experiments, prototypes, and interactive demos.</div>
+              </a>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="text-xs text-slate-500">Keep the header small—grow projects here.</div>
+              <a href="/projects.html" class="text-xs font-semibold text-indigo-300 hover:text-indigo-200">Browse projects →</a>
+            </div>
+          </div>
+        </div>
+
+        <button @click="dark=!dark" class="px-3 py-1 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
+      </nav>
+
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-slate-400 hover:text-white">
+        <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+
+    <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" 
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur absolute w-full left-0">
+      <nav class="flex flex-col p-4 space-y-2 text-center text-sm">
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#about">About</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#showcase">Showcase</a>
+
+        <button @click="projectsOpen = !projectsOpen" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-800 hover:border-indigo-500 text-indigo-300">Projects</button>
+        <div x-show="projectsOpen" x-transition class="mx-auto w-full max-w-xs rounded-xl border border-slate-800 bg-slate-900/30 overflow-hidden" style="display:none;">
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/projects.html" class="block px-4 py-3 hover:bg-slate-900/60">All Projects</a>
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/finsageAI.html" class="block px-4 py-3 hover:bg-slate-900/60">FinSage AI Assistant</a>
+        </div>
+
+        <button @click="dark=!dark; mobileMenuOpen = false" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-gradient grid-bg relative overflow-hidden">
+    <canvas id="heroParticles" class="absolute inset-0 w-full h-full opacity-30 pointer-events-none"></canvas>
+    <div class="max-w-7xl mx-auto px-4 py-20 md:py-24">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-medium text-indigo-400 uppercase tracking-wider">
+          Project Spotlight
+        </div>
+        <h1 class="mt-6 text-4xl md:text-6xl font-bold leading-tight">
+          FinSage <span class="text-indigo-400">AI</span> Assistant
+        </h1>
+        <p class="mt-5 text-lg md:text-xl text-slate-300 leading-relaxed">
+          A <span class="text-emerald-300 font-medium">fully-local</span> AI-powered trading assistant for Zerodha Kite.
+          Chat with local LLMs via Ollama, analyze your portfolio, and execute trades with human-in-the-loop safety.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="https://github.com/rvsaraswat/FinSageAi-Assistant" target="_blank" rel="noopener" class="px-5 py-3 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300 font-medium flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.14 0 0 1-.32 3.28 1.23a11.4 11.4 0 0 1 5.97 0c2.27-1.55 3.27-1.23 3.27-1.23.66 1.63.24 2.84.12 3.14.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+            View on GitHub
+          </a>
+          <a href="#screenshots" class="px-5 py-3 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium glow glow-btn">
+            See Screenshots
+          </a>
+          <a href="https://github.com/rvsaraswat/FinSageAi-Assistant/blob/main/INSTALLATION.md" target="_blank" rel="noopener" class="px-5 py-3 rounded-md bg-slate-800/60 hover:bg-slate-700 text-slate-100 font-medium">
+            Installation Guide
+          </a>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4 text-sm">
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-900/20">
+            <div class="text-indigo-300 font-semibold">🔒 Fully Local</div>
+            <div class="text-slate-400 mt-1">Portfolio stays private.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-900/20">
+            <div class="text-indigo-300 font-semibold">🧠 Smart Analysis</div>
+            <div class="text-slate-400 mt-1">Risk + insights.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-900/20">
+            <div class="text-indigo-300 font-semibold">📊 Charts</div>
+            <div class="text-slate-400 mt-1">Auto dashboards.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-900/20">
+            <div class="text-indigo-300 font-semibold">🛡️ Safe Trading</div>
+            <div class="text-slate-400 mt-1">Confirm every order.</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-900/20">
+            <div class="text-indigo-300 font-semibold">⚡ Easy Setup</div>
+            <div class="text-slate-400 mt-1">~10 minutes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl font-semibold">What it does</h2>
+        <p class="mt-4 text-slate-300 text-lg leading-relaxed">
+          FinSage AI Assistant brings local LLMs (via Ollama) together with real-time portfolio data from Zerodha Kite.
+          You ask in plain English; the system fetches live holdings/positions and returns insights, charts, and next-best actions.
+        </p>
+        <div class="mt-6 rounded-xl border border-slate-800 p-6 bg-slate-900/20">
+          <h3 class="text-lg font-semibold text-slate-200">Designed for responsible automation</h3>
+          <ul class="mt-3 space-y-2 text-slate-400">
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Human-in-the-loop confirmations before trade execution</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Local model inference to keep sensitive data private</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Clear, structured order previews before placing orders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rounded-xl border border-slate-800 p-6 bg-slate-900/20 glow">
+        <h3 class="text-xl font-semibold">How it works (high level)</h3>
+        <ol class="mt-4 space-y-3 text-slate-400">
+          <li class="flex gap-3"><span class="text-indigo-300 font-semibold">1.</span><span>User chats in the browser UI (port 15600 in the project).</span></li>
+          <li class="flex gap-3"><span class="text-indigo-300 font-semibold">2.</span><span>Express API routes requests to Ollama and to Kite Connect for live portfolio data.</span></li>
+          <li class="flex gap-3"><span class="text-indigo-300 font-semibold">3.</span><span>LLM returns analysis + recommendations; charts are generated for allocations and performance.</span></li>
+          <li class="flex gap-3"><span class="text-indigo-300 font-semibold">4.</span><span>For orders, the assistant prepares a structured draft; user must confirm before execution.</span></li>
+        </ol>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-950/30">
+            <div class="text-slate-200 font-semibold">Core stack</div>
+            <div class="text-slate-400 mt-1">Node.js, Express, Ollama, Kite Connect API</div>
+          </div>
+          <div class="rounded-xl border border-slate-800 p-4 bg-slate-950/30">
+            <div class="text-slate-200 font-semibold">Optional</div>
+            <div class="text-slate-400 mt-1">Model Context Protocol via remote Kite MCP server</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots" class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold">Screenshots</h2>
+      <p class="mt-3 text-slate-400 max-w-3xl">
+        Visual walkthrough from the project repo (copied here for speed and stability).
+      </p>
+
+      <div class="mt-10 grid lg:grid-cols-2 gap-8">
+        <figure class="rounded-xl border border-slate-800 bg-slate-900/20 overflow-hidden">
+          <img src="/images/finsage/landing-page.png" alt="FinSage AI Assistant landing page" class="w-full h-auto" loading="lazy">
+          <figcaption class="p-4 text-sm text-slate-400">
+            <span class="text-slate-200 font-semibold">Landing Page</span> — the main entry screen with authentication and model selection.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-xl border border-slate-800 bg-slate-900/20 overflow-hidden">
+          <img src="/images/finsage/analysis-1.png" alt="Portfolio analysis overview" class="w-full h-auto" loading="lazy">
+          <figcaption class="p-4 text-sm text-slate-400">
+            <span class="text-slate-200 font-semibold">Comprehensive Portfolio Overview</span> — summary insights across holdings and performance.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-xl border border-slate-800 bg-slate-900/20 overflow-hidden">
+          <img src="/images/finsage/analysis-2.png" alt="Sector allocation and risk assessment" class="w-full h-auto" loading="lazy">
+          <figcaption class="p-4 text-sm text-slate-400">
+            <span class="text-slate-200 font-semibold">Sector Allocation &amp; Risk Assessment</span> — allocation view plus concentration and risk signals.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-xl border border-slate-800 bg-slate-900/20 overflow-hidden">
+          <img src="/images/finsage/analysis-3.png" alt="Top performers and recommendations" class="w-full h-auto" loading="lazy">
+          <figcaption class="p-4 text-sm text-slate-400">
+            <span class="text-slate-200 font-semibold">Top Performers &amp; Recommendations</span> — highlights winners/laggards and suggested actions.
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-xl border border-slate-800 bg-slate-900/20 overflow-hidden lg:col-span-2">
+          <img src="/images/finsage/analysis-4.png" alt="Detailed stock analysis with charts" class="w-full h-auto" loading="lazy">
+          <figcaption class="p-4 text-sm text-slate-400">
+            <span class="text-slate-200 font-semibold">Detailed Stock Analysis with Charts</span> — deeper dives per symbol with visual breakdowns.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-semibold">Try it locally</h2>
+        <p class="mt-4 text-slate-300 text-lg leading-relaxed">
+          FinSage AI Assistant is built for developers and traders who want AI insights without sending portfolio data to third-party AI services.
+          Setup uses Node.js + Ollama + Zerodha Kite Connect.
+        </p>
+        <div class="mt-6 rounded-xl border border-slate-800 p-6 bg-slate-900/20">
+          <h3 class="text-lg font-semibold text-slate-200">Quick links</h3>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a class="px-4 py-2 rounded-md bg-slate-800/60 hover:bg-slate-700 text-slate-100 font-medium" href="https://github.com/rvsaraswat/FinSageAi-Assistant#-quick-start" target="_blank" rel="noopener">Quick Start</a>
+            <a class="px-4 py-2 rounded-md bg-slate-800/60 hover:bg-slate-700 text-slate-100 font-medium" href="https://github.com/rvsaraswat/FinSageAi-Assistant/blob/main/INSTALLATION.md" target="_blank" rel="noopener">INSTALLATION.md</a>
+            <a class="px-4 py-2 rounded-md bg-slate-800/60 hover:bg-slate-700 text-slate-100 font-medium" href="https://github.com/rvsaraswat/FinSageAi-Assistant/issues" target="_blank" rel="noopener">Issues</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl border border-slate-800 p-6 bg-slate-900/20">
+        <h3 class="text-xl font-semibold">What makes it different</h3>
+        <ul class="mt-4 space-y-3 text-slate-400">
+          <li class="flex gap-2"><span class="text-indigo-300">•</span><span><span class="text-slate-200 font-semibold">Privacy-first:</span> local LLM inference via Ollama.</span></li>
+          <li class="flex gap-2"><span class="text-indigo-300">•</span><span><span class="text-slate-200 font-semibold">Actionable analytics:</span> charts and breakdowns, not just chat.</span></li>
+          <li class="flex gap-2"><span class="text-indigo-300">•</span><span><span class="text-slate-200 font-semibold">Safe automation:</span> trade placement requires explicit confirmation.</span></li>
+          <li class="flex gap-2"><span class="text-indigo-300">•</span><span><span class="text-slate-200 font-semibold">Extensible:</span> optional MCP remote integration patterns.</span></li>
+        </ul>
+
+        <div class="mt-8 rounded-xl border border-slate-800 p-5 bg-slate-950/30">
+          <div class="text-xs text-slate-500 uppercase tracking-wider">Repository</div>
+          <a class="mt-2 block text-indigo-300 hover:text-indigo-200 break-all" href="https://github.com/rvsaraswat/FinSageAi-Assistant" target="_blank" rel="noopener">
+            https://github.com/rvsaraswat/FinSageAi-Assistant
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-12">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <div class="font-semibold text-slate-300">© Mahatm Innovations</div>
+        <div class="text-xs text-slate-500 mt-1">
+          <a href="#" class="hover:text-slate-400 transition">Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="flex gap-6 text-sm font-medium text-slate-400">
+        <a href="https://github.com/rvsaraswat" target="_blank" rel="noopener" class="hover:text-indigo-400 transition flex items-center gap-2">
+          GitHub
+        </a>
+        <a href="https://www.youtube.com/@mahatmai" target="_blank" rel="noopener" class="hover:text-red-400 transition flex items-center gap-2">
+          YouTube
+        </a>
+        <a href="#" class="hover:text-emerald-400 transition flex items-center gap-2">
+          Blog
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/hero.js"></script>
+</body>
+</html>

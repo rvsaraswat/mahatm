@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Mahatm Innovations</title>
+  <meta name="description" content="Project showcase from Mahatm Innovations: practical AI systems, demos, and open-source tools.">
+  <link rel="canonical" href="https://mahatm.in/projects.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:title" content="Projects — Mahatm Innovations">
+  <meta property="og:description" content="Explore projects built at Mahatm Innovations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mahatm.in/projects.html">
+  <meta property="og:image" content="https://mahatm.in/images/og-card.png">
+
+  <script defer data-domain="mahatm.in" src="https://plausible.io/js/script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <style>
+    .glow { box-shadow: 0 0 20px rgba(99,102,241,0.35); }
+    .grid-bg {
+      background-image: linear-gradient(rgba(99,102,241,0.10) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(99,102,241,0.10) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: center center;
+    }
+    .hero-gradient {
+      background: radial-gradient(1000px 400px at 50% -100px, rgba(99,102,241,0.22), transparent),
+                  radial-gradient(600px 400px at 80% -50px, rgba(34,197,94,0.22), transparent);
+    }
+  </style>
+</head>
+
+<body x-data="{dark:true}" :class="dark ? 'theme-dark bg-slate-950 text-slate-200' : 'theme-light bg-white text-slate-800'">
+  <header x-data="{ mobileMenuOpen: false, projectsOpen: false }" :class="'sticky top-0 z-40 backdrop-blur border-b ' + (dark ? 'bg-slate-950/60 border-slate-800' : 'bg-white/70 border-slate-200')">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 font-semibold text-lg tracking-tight">
+        <img src="/images/mahatm_logo.svg" alt="Mahatm Innovations Logo" class="w-8 h-8" />
+        <span>Mahatm Innovations</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm relative">
+        <a class="hover:text-indigo-300" href="/#about">About</a>
+        <a class="hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+
+        <div class="relative" @keydown.escape.window="projectsOpen=false">
+          <button @click="projectsOpen = !projectsOpen" class="hover:text-indigo-300 inline-flex items-center gap-2" :aria-expanded="projectsOpen.toString()" aria-haspopup="true">
+            <span class="text-indigo-300">Projects</span>
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+
+          <div x-show="projectsOpen" @click.away="projectsOpen=false" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-120" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute left-0 mt-3 w-[22rem] sm:w-[28rem] md:w-[34rem] rounded-xl border border-slate-800 bg-slate-950/95 backdrop-blur p-4 shadow-xl" style="display:none;">
+            <div class="text-xs uppercase tracking-wider text-slate-500 px-1">Projects</div>
+            <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <a href="/projects.html" class="md:col-span-2 rounded-lg border border-slate-800 bg-slate-900/30 p-4 hover:border-indigo-500/50 hover:bg-slate-900/50 transition">
+                <div class="text-sm font-semibold text-slate-100">View all projects</div>
+                <div class="mt-1 text-xs text-slate-400">A growing catalog of practical AI systems and experiments.</div>
+              </a>
+
+              <a href="/finsageAI.html" class="md:col-span-2 rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-emerald-500/40 hover:bg-slate-900/40 transition flex gap-4">
+                <img src="/images/finsage/landing-page.png" alt="FinSage AI Assistant preview" class="w-16 h-12 rounded-md object-cover border border-slate-800" loading="lazy">
+                <div class="min-w-0">
+                  <div class="text-sm font-semibold text-indigo-300">FinSage AI Assistant</div>
+                  <div class="mt-1 text-xs text-slate-400">Local LLM + Zerodha Kite copilot with portfolio analytics and safe trade execution.</div>
+                </div>
+              </a>
+
+              <a href="/lab/ai-maze/" class="rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-indigo-500/40 hover:bg-slate-900/40 transition">
+                <div class="text-sm font-semibold text-slate-100">AI Chat Maze</div>
+                <div class="mt-1 text-xs text-slate-400">A playful lab demo exploring agent-like behavior.</div>
+              </a>
+
+              <a href="/lab/" class="rounded-lg border border-slate-800 bg-slate-900/20 p-4 hover:border-indigo-500/40 hover:bg-slate-900/40 transition">
+                <div class="text-sm font-semibold text-slate-100">AI Lab</div>
+                <div class="mt-1 text-xs text-slate-400">Experiments, prototypes, and interactive demos.</div>
+              </a>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="text-xs text-slate-500">Keep the header small—grow projects here.</div>
+              <a href="/projects.html" class="text-xs font-semibold text-indigo-300 hover:text-indigo-200">Browse projects →</a>
+            </div>
+          </div>
+        </div>
+
+        <button @click="dark=!dark" class="px-3 py-1 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
+      </nav>
+
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-slate-400 hover:text-white">
+        <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display:none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+
+    <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" 
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur absolute w-full left-0">
+      <nav class="flex flex-col p-4 space-y-2 text-center text-sm">
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#about">About</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+
+        <button @click="projectsOpen = !projectsOpen" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-800 hover:border-indigo-500 text-indigo-300">
+          Projects
+        </button>
+        <div x-show="projectsOpen" x-transition class="mx-auto w-full max-w-xs rounded-xl border border-slate-800 bg-slate-900/30 overflow-hidden" style="display:none;">
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/projects.html" class="block px-4 py-3 hover:bg-slate-900/60">All Projects</a>
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/finsageAI.html" class="block px-4 py-3 hover:bg-slate-900/60">FinSage AI Assistant</a>
+        </div>
+
+        <button @click="dark=!dark; mobileMenuOpen = false" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-gradient grid-bg relative overflow-hidden">
+    <canvas id="heroParticles" class="absolute inset-0 w-full h-full opacity-30 pointer-events-none"></canvas>
+    <div class="max-w-7xl mx-auto px-4 py-20 md:py-24 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-medium text-indigo-400 uppercase tracking-wider">
+        Showcase
+      </div>
+      <h1 class="mt-6 text-4xl md:text-6xl font-bold leading-tight">Projects</h1>
+      <p class="mt-5 max-w-3xl mx-auto text-lg text-slate-300">
+        Practical AI systems, experiments, and open-source tools.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <article class="rounded-xl border border-slate-800 bg-slate-900/20 p-8 flex flex-col">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl font-bold text-slate-100">FinSage AI Assistant</h2>
+            <span class="text-xs px-2 py-1 rounded-full border border-emerald-700/50 text-emerald-300 bg-emerald-900/10">Open Source</span>
+          </div>
+          <p class="mt-4 text-slate-300">
+            AI-powered trading assistant for Zerodha Kite using local LLMs via Ollama: portfolio analysis, charts, and safe trade execution.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">LLMs</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Ollama</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Zerodha</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Automation</span>
+          </div>
+
+          <div class="mt-auto pt-6 flex flex-wrap gap-3">
+            <a class="px-3 py-2 text-sm rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-semibold glow glow-btn w-full sm:w-auto" href="/finsageAI.html">Read more</a>
+            <a class="px-3 py-2 text-sm rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300 font-semibold w-full sm:w-auto" href="https://github.com/rvsaraswat/FinSageAi-Assistant" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="rounded-xl border border-slate-800 bg-slate-900/10 p-8 flex flex-col">
+          <h2 class="text-2xl font-bold text-slate-100">More projects coming</h2>
+          <p class="mt-4 text-slate-400">
+            This hub page is designed to scale: each new project gets a card here and an optional detail page.
+          </p>
+          <div class="mt-8 text-sm text-slate-500 mt-auto">
+            Tip: keep the header stable and grow the catalog here.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-12">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <div class="font-semibold text-slate-300">© Mahatm Innovations</div>
+        <div class="text-xs text-slate-500 mt-1">
+          <a href="#" class="hover:text-slate-400 transition">Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="flex gap-6 text-sm font-medium text-slate-400">
+        <a href="https://github.com/rvsaraswat" target="_blank" rel="noopener" class="hover:text-indigo-400 transition flex items-center gap-2">GitHub</a>
+        <a href="https://www.youtube.com/@mahatmai" target="_blank" rel="noopener" class="hover:text-red-400 transition flex items-center gap-2">YouTube</a>
+        <a href="#" class="hover:text-emerald-400 transition flex items-center gap-2">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/hero.js"></script>
+</body>
+</html>
