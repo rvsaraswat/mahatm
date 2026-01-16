@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects — Mahatm Innovations</title>
-  <meta name="description" content="Project showcase from Mahatm Innovations: practical AI systems, demos, and open-source tools.">
-  <link rel="canonical" href="https://mahatm.in/projects.html">
+  <title>Contact — Mahatm Innovations</title>
+  <meta name="description" content="Contact Mahatm Innovations. Reach out about collaborations, consulting, or product feedback.">
+  <link rel="canonical" href="https://mahatm.in/contact.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <meta property="og:title" content="Projects — Mahatm Innovations">
-  <meta property="og:description" content="Explore projects built at Mahatm Innovations.">
+  <meta property="og:title" content="Contact — Mahatm Innovations">
+  <meta property="og:description" content="Reach out about collaborations, consulting, or product feedback.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mahatm.in/projects.html">
+  <meta property="og:url" content="https://mahatm.in/contact.html">
   <meta property="og:image" content="https://mahatm.in/images/og-card.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Projects — Mahatm Innovations">
-  <meta name="twitter:description" content="Explore projects built at Mahatm Innovations.">
+  <meta name="twitter:title" content="Contact — Mahatm Innovations">
+  <meta name="twitter:description" content="Reach out about collaborations, consulting, or product feedback.">
   <meta name="twitter:image" content="https://mahatm.in/images/og-card.png">
 
   <script type="application/ld+json">
@@ -32,38 +32,11 @@
       ]
     }
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Projects — Mahatm Innovations",
-      "url": "https://mahatm.in/projects.html",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Mahatm Innovations",
-        "url": "https://mahatm.in/"
-      }
-    }
-  </script>
 
   <script defer data-domain="mahatm.in" src="https://plausible.io/js/script.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/styles.css">
-
-  <style>
-    .glow { box-shadow: 0 0 20px rgba(99,102,241,0.35); }
-    .grid-bg {
-      background-image: linear-gradient(rgba(99,102,241,0.10) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(99,102,241,0.10) 1px, transparent 1px);
-      background-size: 24px 24px;
-      background-position: center center;
-    }
-    .hero-gradient {
-      background: radial-gradient(1000px 400px at 50% -100px, rgba(99,102,241,0.22), transparent),
-                  radial-gradient(600px 400px at 80% -50px, rgba(34,197,94,0.22), transparent);
-    }
-  </style>
 </head>
 
 <body x-data="{dark:true}" :class="dark ? 'theme-dark bg-slate-950 text-slate-200' : 'theme-light bg-white text-slate-800'">
@@ -75,12 +48,12 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-sm relative">
-        <a class="hover:text-indigo-300" href="/#about">About</a>
-        <a class="hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+        <a class="hover:text-indigo-300" href="/">Home</a>
+        <a class="hover:text-indigo-300" href="/about.html">About</a>
 
         <div class="relative" @keydown.escape.window="projectsOpen=false">
           <button @click="projectsOpen = !projectsOpen" class="hover:text-indigo-300 inline-flex items-center gap-2" :aria-expanded="projectsOpen.toString()" aria-haspopup="true">
-            <span class="text-indigo-300">Projects</span>
+            Projects
             <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
           </button>
 
@@ -118,6 +91,8 @@
           </div>
         </div>
 
+        <a class="hover:text-indigo-300" href="/blog.html">Blog</a>
+        <a class="hover:text-indigo-300" href="/contact.html"><span class="text-indigo-300">Contact</span></a>
         <button @click="dark=!dark" class="px-3 py-1 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
       </nav>
 
@@ -136,15 +111,17 @@
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur absolute w-full left-0">
       <nav class="flex flex-col p-4 space-y-2 text-center text-sm">
-        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#about">About</a>
-        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/#pillars">Focus Areas</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/">Home</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/about.html">About</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/blog.html">Blog</a>
+        <a @click="mobileMenuOpen = false" class="block py-2 hover:text-indigo-300" href="/contact.html">Contact</a>
 
-        <button @click="projectsOpen = !projectsOpen" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-800 hover:border-indigo-500 text-indigo-300">
-          Projects
-        </button>
+        <button @click="projectsOpen = !projectsOpen" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-800 hover:border-indigo-500 text-indigo-300">Projects</button>
         <div x-show="projectsOpen" x-transition class="mx-auto w-full max-w-xs rounded-xl border border-slate-800 bg-slate-900/30 overflow-hidden" style="display:none;">
           <a @click="mobileMenuOpen=false; projectsOpen=false" href="/projects.html" class="block px-4 py-3 hover:bg-slate-900/60">All Projects</a>
           <a @click="mobileMenuOpen=false; projectsOpen=false" href="/finsageAI.html" class="block px-4 py-3 hover:bg-slate-900/60">FinSage AI Assistant</a>
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/lab/" class="block px-4 py-3 hover:bg-slate-900/60">AI Lab</a>
+          <a @click="mobileMenuOpen=false; projectsOpen=false" href="/lab/ai-maze/" class="block px-4 py-3 hover:bg-slate-900/60">AI Chat Maze</a>
         </div>
 
         <button @click="dark=!dark; mobileMenuOpen = false" class="mx-auto w-full max-w-xs px-3 py-2 rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300">Toggle Theme</button>
@@ -152,55 +129,64 @@
     </div>
   </header>
 
-  <section class="hero-gradient grid-bg relative overflow-hidden">
-    <canvas id="heroParticles" class="absolute inset-0 w-full h-full opacity-30 pointer-events-none"></canvas>
-    <div class="max-w-7xl mx-auto px-4 py-20 md:py-24 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-medium text-indigo-400 uppercase tracking-wider">
-        Showcase
-      </div>
-      <h1 class="mt-6 text-4xl md:text-6xl font-bold leading-tight">Projects</h1>
-      <p class="mt-5 max-w-3xl mx-auto text-lg text-slate-300">
-        Practical AI systems, experiments, and open-source tools.
-      </p>
+  <main class="max-w-5xl mx-auto px-4 py-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-medium text-indigo-400 uppercase tracking-wider">
+      Contact
     </div>
-  </section>
 
-  <section class="py-20 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-        <article class="rounded-xl border border-slate-800 bg-slate-900/20 p-8 flex flex-col">
-          <div class="flex items-center justify-between gap-4">
-            <h2 class="text-2xl font-bold text-slate-100">FinSage AI Assistant</h2>
-            <span class="text-xs px-2 py-1 rounded-full border border-emerald-700/50 text-emerald-300 bg-emerald-900/10">Open Source</span>
-          </div>
-          <p class="mt-4 text-slate-300">
-            AI-powered trading assistant for Zerodha Kite using local LLMs via Ollama: portfolio analysis, charts, and safe trade execution.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">LLMs</span>
-            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Ollama</span>
-            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Zerodha</span>
-            <span class="px-2 py-0.5 rounded-full bg-slate-900/60 border border-slate-800 text-slate-300 text-[11px] leading-5 whitespace-nowrap">Automation</span>
-          </div>
+    <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight">Let’s talk</h1>
+    <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+      For collaborations, consulting, speaking, or product feedback, use the form below or reach out via GitHub/YouTube.
+    </p>
 
-          <div class="mt-auto pt-6 flex flex-wrap gap-3">
-            <a class="px-3 py-2 text-sm rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-semibold glow glow-btn w-full sm:w-auto" href="/finsageAI.html">Read more</a>
-            <a class="px-3 py-2 text-sm rounded-md border border-slate-700 hover:border-indigo-500 text-indigo-300 font-semibold w-full sm:w-auto" href="https://github.com/rvsaraswat/FinSageAi-Assistant" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </article>
+    <div class="mt-10 grid lg:grid-cols-2 gap-6">
+      <section class="rounded-xl border border-slate-800 bg-slate-900/20 p-6">
+        <h2 class="text-xl font-semibold text-slate-100">Message</h2>
+        <p class="mt-3 text-sm text-slate-400">
+          Replace the Formspree endpoint when you’re ready. This is intentionally a placeholder so the page ships safely.
+        </p>
 
-        <article class="rounded-xl border border-slate-800 bg-slate-900/10 p-8 flex flex-col">
-          <h2 class="text-2xl font-bold text-slate-100">More projects coming</h2>
-          <p class="mt-4 text-slate-400">
-            This hub page is designed to scale: each new project gets a card here and an optional detail page.
-          </p>
-          <div class="mt-8 text-sm text-slate-500 mt-auto">
-            Tip: keep the header stable and grow the catalog here.
+        <form class="mt-6 space-y-4" method="POST" action="https://formspree.io/f/your-form-id">
+          <div>
+            <label class="block text-sm text-slate-300" for="name">Name</label>
+            <input class="mt-2 w-full rounded-md bg-slate-950/50 border border-slate-800 px-3 py-2 text-slate-100" id="name" name="name" autocomplete="name" required>
           </div>
-        </article>
-      </div>
+          <div>
+            <label class="block text-sm text-slate-300" for="email">Email</label>
+            <input class="mt-2 w-full rounded-md bg-slate-950/50 border border-slate-800 px-3 py-2 text-slate-100" id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label class="block text-sm text-slate-300" for="message">Message</label>
+            <textarea class="mt-2 w-full rounded-md bg-slate-950/50 border border-slate-800 px-3 py-2 text-slate-100" id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button class="w-full sm:w-auto px-5 py-3 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium glow glow-btn" type="submit">
+            Send
+          </button>
+        </form>
+      </section>
+
+      <section class="rounded-xl border border-slate-800 bg-slate-900/20 p-6">
+        <h2 class="text-xl font-semibold text-slate-100">Other ways</h2>
+        <div class="mt-4 space-y-4 text-slate-400">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500">GitHub</div>
+            <a class="mt-1 block text-indigo-300 hover:text-indigo-200" href="https://github.com/rvsaraswat" target="_blank" rel="noopener">https://github.com/rvsaraswat</a>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-500">YouTube</div>
+            <a class="mt-1 block text-indigo-300 hover:text-indigo-200" href="https://www.youtube.com/@mahatmai" target="_blank" rel="noopener">https://www.youtube.com/@mahatmai</a>
+          </div>
+          <div class="rounded-xl border border-slate-800 bg-slate-950/30 p-4">
+            <div class="text-sm text-slate-300 font-semibold">Tip for visibility</div>
+            <p class="mt-2 text-sm">
+              Add your domain link (https://mahatm.in) to your GitHub profile bio and YouTube channel “Links”.
+              Those high-trust backlinks help search engines discover and trust the site faster.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
+  </main>
 
   <footer class="border-t border-slate-800 bg-slate-950 py-12">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -214,14 +200,12 @@
       </div>
 
       <div class="flex gap-6 text-sm font-medium text-slate-400">
-        <a href="https://github.com/rvsaraswat" target="_blank" rel="noopener" class="hover:text-indigo-400 transition flex items-center gap-2">GitHub</a>
-        <a href="https://www.youtube.com/@mahatmai" target="_blank" rel="noopener" class="hover:text-red-400 transition flex items-center gap-2">YouTube</a>
-        <a href="/blog.html" class="hover:text-emerald-400 transition flex items-center gap-2">Blog</a>
-        <a href="/contact.html" class="hover:text-slate-300 transition flex items-center gap-2">Contact</a>
+        <a href="https://github.com/rvsaraswat" target="_blank" rel="noopener" class="hover:text-indigo-400 transition">GitHub</a>
+        <a href="https://www.youtube.com/@mahatmai" target="_blank" rel="noopener" class="hover:text-red-400 transition">YouTube</a>
+        <a href="/blog.html" class="hover:text-emerald-400 transition">Blog</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
       </div>
     </div>
   </footer>
-
-  <script src="/js/hero.js"></script>
 </body>
 </html>
